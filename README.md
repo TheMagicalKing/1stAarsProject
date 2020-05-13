@@ -35,3 +35,5 @@ Frederiksbergs Sprotsklinik har udvist interrese for udviklingen af en app for a
 ### Mission og Vision
 </br>
 > indsæt Mission og Vision når dokumentet er blevet skrevet
+> hahahaha joke
+
