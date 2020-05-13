@@ -4,12 +4,34 @@
 Frederiksbergs Sprotsklinik har udvist interrese for udviklingen af en app for at gøre det nemmere for deres kunder at bestille tid.
 
 ### Gruppen består af
-
-Daniel Mike Sirkorski    - [[@Mildrloll]](https://github.com/Mildrloll)</br>
-Nicki Gelu Hvolgaard     - [[@TheMagicalKing]](https://github.com/TheMagicalKing)</br>
-Nikolaj Thor Christensen - [[@NikoThor]](https://github.com/NikoThor)</br>
-Sune Dalsager Bro        - [[@Sune1998]](https://github.com/Sune1998)</br>
+<table>
+<thead>
+<tr>
+<th>Navn:</th>
+<th>Github link:
+</br></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Daniel Mike Sirkorski</td>
+<td><a href="https://github.com/Mildrloll">@Mildrloll</a></td>
+</tr>
+ <tr>
+<td>Nicki Gelu Hvolgaard</td>
+<td><a href="https://github.com/TheMagicalKing">@TheMagicalKing</a></td>
+</tr>
+  <tr>
+<td>Nikolaj Thor Christensen</td>
+<td><a href="https://github.com/NikoThor">@NikoThor</a></td>
+</tr>
+  <tr>
+<td>Sune Dalsager Bro  </td>
+<td><a href="https://github.com/Sune1998">@Sune1998</a></td>
+</tr>
+</tbody>
+</table>
 
 ### Mission og Vision
 </br>
->indsæt Mission og Vision når dokumentet er blevet skrevet
+> indsæt Mission og Vision når dokumentet er blevet skrevet
