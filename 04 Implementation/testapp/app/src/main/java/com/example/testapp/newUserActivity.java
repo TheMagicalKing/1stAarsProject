@@ -90,7 +90,7 @@ public class newUserActivity extends AppCompatActivity {
             }
         }); */
     private void forsideChange() {
-        Intent intent = new Intent(this,forsideActivity.class);
+        Intent intent = new Intent(this, com.example.android.uitest.forsideActivity.class);
         startActivity(intent);
         }
 

@@ -19,6 +19,11 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.google.android.material.snackbar.Snackbar;
+import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 
 public class  MainActivity extends AppCompatActivity {
@@ -29,8 +34,7 @@ public class  MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        Toolbar toolbar = findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
+        Toolbar toolbar = findViewById(R.id.toolbar3);
 
         final EditText userEmail = findViewById(R.id.userEmail);
         final EditText userPass = findViewById(R.id.userPass);
@@ -97,7 +101,7 @@ public class  MainActivity extends AppCompatActivity {
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if (task.isSuccessful()) {
                             Toast.makeText(MainActivity.this, "User logged in", Toast.LENGTH_SHORT).show();
-                            startActivity(new Intent(getApplicationContext(), forsideActivity.class));
+                            startActivity(new Intent(getApplicationContext(), com.example.android.uitest.forsideActivity.class));
                         } else {
                             Toast.makeText(MainActivity.this, "Error !" + task.getException().getMessage(), Toast.LENGTH_SHORT).show();
                         }
@@ -123,7 +127,7 @@ public class  MainActivity extends AppCompatActivity {
 
     }
     public void openForgot(){
-        Intent intent = new Intent(this, forgotsUserPass.class);
+        Intent intent = new Intent(this, com.example.android.uitest.forgotsUserPass.class);
         startActivity(intent);
     }
 
