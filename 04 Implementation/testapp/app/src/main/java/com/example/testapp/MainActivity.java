@@ -101,7 +101,7 @@ public class  MainActivity extends AppCompatActivity {
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if (task.isSuccessful()) {
                             Toast.makeText(MainActivity.this, "User logged in", Toast.LENGTH_SHORT).show();
-                            startActivity(new Intent(getApplicationContext(), com.example.android.uitest.forsideActivity.class));
+                            startActivity(new Intent(getApplicationContext(), forsideActivity.class));
                         } else {
                             Toast.makeText(MainActivity.this, "Error !" + task.getException().getMessage(), Toast.LENGTH_SHORT).show();
                         }
@@ -127,7 +127,7 @@ public class  MainActivity extends AppCompatActivity {
 
     }
     public void openForgot(){
-        Intent intent = new Intent(this, com.example.android.uitest.forgotsUserPass.class);
+        Intent intent = new Intent(this, forgotsUserPass.class);
         startActivity(intent);
     }
 
