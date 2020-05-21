@@ -28,14 +28,14 @@ public class forsideActivity extends AppCompatActivity {
 
     private void openChat(){
 
-        Intent intent = new Intent(this, com.example.android.uitest.klientChat.class);
+        Intent intent = new Intent(this, klientChat.class);
         startActivity(intent);
 
     }
 
     private void openOevelse(){
 
-        Intent intent = new Intent(this, com.example.android.uitest.oevelseActivity.class);
+        Intent intent = new Intent(this, oevelseActivity.class);
         startActivity(intent);
 
     }
