@@ -18,8 +18,6 @@ public class forgotsUserPass extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_forgots_user_pass);
 
-        System.out.println("you're in");
-
         Button tester = findViewById(R.id.TestButton);
         tester.setOnClickListener(new View.OnClickListener() {
             @Override
