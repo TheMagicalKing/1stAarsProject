@@ -1,0 +1,98 @@
+{
+  "project_info": {
+    "project_number": "27715466980",
+    "firebase_url": "https://fysio-app.firebaseio.com",
+    "project_id": "fysio-app",
+    "storage_bucket": "fysio-app.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:27715466980:android:1f66d302ca004d15d69ef1",
+        "android_client_info": {
+          "package_name": "com.example.android.uitest"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "27715466980-qhbqk8jpj31fmco6hj8jf2pi1qpk6ip3.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBA7HkQ1fNSx8BKaMoiGTTGV5nUanLdKw8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "27715466980-qhbqk8jpj31fmco6hj8jf2pi1qpk6ip3.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:27715466980:android:53d91bf1146214fbd69ef1",
+        "android_client_info": {
+          "package_name": "com.example.fysio_app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "27715466980-qhbqk8jpj31fmco6hj8jf2pi1qpk6ip3.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBA7HkQ1fNSx8BKaMoiGTTGV5nUanLdKw8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "27715466980-qhbqk8jpj31fmco6hj8jf2pi1qpk6ip3.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:27715466980:android:7764899b5a960011d69ef1",
+        "android_client_info": {
+          "package_name": "com.example.testapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "27715466980-qhbqk8jpj31fmco6hj8jf2pi1qpk6ip3.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBA7HkQ1fNSx8BKaMoiGTTGV5nUanLdKw8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "27715466980-qhbqk8jpj31fmco6hj8jf2pi1qpk6ip3.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
