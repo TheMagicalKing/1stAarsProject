@@ -6,19 +6,37 @@ import android.app.DownloadManager;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.format.DateFormat;
+import android.view.Gravity;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.ListView;
+import android.widget.RelativeLayout;
+import android.widget.ScrollView;
 import android.widget.TextView;
 
 import com.example.testapp.R;
+import com.firebase.client.ChildEventListener;
+import com.firebase.client.DataSnapshot;
+import com.firebase.client.Firebase;
+import com.firebase.client.FirebaseError;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.firebase.auth.FirebaseAuth;
 
+import java.util.HashMap;
+import java.util.Map;
+
 
 public class klientChat extends AppCompatActivity {
-    private static final int RC_SIGN_IN = 0;
+    LinearLayout layout;
+    RelativeLayout relativeLayout;
+    ImageView sendButton;
+    EditText messageArea;
+    ScrollView scrollView;
+    Firebase reference1, reference2;
+
 
 
     @Override
@@ -26,8 +44,69 @@ public class klientChat extends AppCompatActivity {
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_klient_chat);
+        layout = findViewById(R.id.layout);
+        relativeLayout = findViewById(R.id.relativlayout);
+        sendButton = findViewById(R.id.sendButton);
+        messageArea = findViewById(R.id.messageArea);
+        scrollView = findViewById(R.id.scrollView);
 
-            displayChatMessages();
+        Firebase.setAndroidContext(this);
+        reference1 = new Firebase("https://chat-test-6a7f9.firebaseio.com/Beskeder/YQ5S2VEusLhA2z61WLdT" +UserDetails.username
+                + "_" + UserDetails.chatWith);
+        reference2 = new Firebase("https://chat-test-6a7f9.firebaseio.com/Beskeder/YQ5S2VEusLhA2z61WLdT" +UserDetails.chatWith
+                + "_" + UserDetails.username);
+
+        sendButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String messageText = messageArea.getText().toString();
+
+                if(!messageText.equals("")){
+                    Map<String, String> map = new HashMap<String, String>();
+                    map.put("message", messageText);
+                    map.put("user", UserDetails.username);
+                    reference1.push().setValue(map);
+                    reference2.push().setValue(map);
+                    messageArea.setText("");
+                }
+            }
+        });
+
+
+        reference1.addChildEventListener(new ChildEventListener() {
+            @Override
+            public void onChildAdded(DataSnapshot dataSnapshot, String s) {
+                Map map = dataSnapshot.getValue(Map.class);
+                String message = map.get("message").toString();
+                String userName = map.get("user").toString();
+
+                if (userName.equals(UserDetails.username)){
+                    addMessageBox(message, 1);
+                } else {
+                    addMessageBox(message, 2);
+                }
+            }
+
+            @Override
+            public void onChildChanged(DataSnapshot dataSnapshot, String s) {
+
+            }
+
+            @Override
+            public void onChildRemoved(DataSnapshot dataSnapshot) {
+
+            }
+
+            @Override
+            public void onChildMoved(DataSnapshot dataSnapshot, String s) {
+
+            }
+
+            @Override
+            public void onCancelled(FirebaseError firebaseError) {
+
+            }
+        });
 
         final ImageView backImage = findViewById(R.id.backImage);
 
@@ -36,58 +115,29 @@ public class klientChat extends AppCompatActivity {
             public void onClick(View v) {
                 openForside();
             }
-            FloatingActionButton fab = findViewById(R.id.fab);
-            fab.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    EditText input = findViewById(R.id.input);
 
-                    FirebaseDatabase.getInstance().getReference().push()
-                            .setValue(new ChatMessages(input.getText().toString(), FirebaseAuth.getInstance()
-                                    .getCurrentUser().getDisplayName()));
-
-                    input.setText("");
-                }
             });
 
-        });
     }
 
-    public void displayChatMessages(){
-        ListView listOfMessages = findViewById(R.id.list_of_messages);
-        DownloadManager.Query query = FirebaseDatabase.getInstance().getReference().child("chats");
+    public void addMessageBox(String message, int type){
+        TextView textView = new TextView(klientChat.this);
+        textView.setText(message);
 
-        FirebaseListOptions<ChatMessages> options = new FirebaseListOptions.Builder<ChatMessages>()
-                .setQuery(query, ChatMessages.class).setLayout(android.R.layout.activity_list_item).build();
+        LinearLayout.layoutParams lp2 = new LinearLayout.layoutParams(ViewGroup.layoutParams.WRAP_CONTENT);
+        lp2.wieght = 7.0f;
 
-        FirebaseListAdapter<ChatMessages> adapter = new FirebaseListAdapter<ChatMessages>(options) {
-            @Override
-            protected void populateView( View v,ChatMessages model, int position) {
-                TextView messageText = v.findViewById(R.id.message_text);
-                TextView messageUser = v.findViewById(R.id.message_user);
-                TextView messageTime = v.findViewById(R.id.message_time);
-
-
-                messageText.setText(model.getMessageText());
-                messageUser.setText(model.getMessageUser());
-
-                new DateFormat();
-                long date = 0;
-                messageTime.setText(DateFormat.format("dd/MM/yyyy hh:mm:ss", date).toString());
-            }
-        };
-        listOfMessages.setAdapter(adapter);
+        if (type == 1){
+            lp2.gravity = Gravity.START;
+            textView.setBackgroundResource(R.drawable.bubble_in);
+        } else {
+            lp2.gravity = Gravity.END;
+            textView.setBackgroundResource(R.drawable.bubble_out);
+        }
+        textView.setLayoutParams(lp2);
+        layout.addView(textView);
+        scrollView.addView(textView);
     }
-
-
-
-
-
-
-
-
-
-
     private void openForside(){
         Intent intent = new Intent(this, forsideActivity.class);
         startActivity(intent);

@@ -15,6 +15,7 @@
         <activity android:name=".forsideActivity" />
         <activity android:name=".newUserActivity" />
         <activity android:name=".forgotsUserPass" />
+        <activity android:name=".Users" />
 
         <activity
         android:name=".MainActivity"
