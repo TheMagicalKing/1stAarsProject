@@ -4,6 +4,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.view.Menu;
@@ -21,16 +22,22 @@ import android.widget.ProgressBar;
 
 import com.example.testapp.R;
 
+import java.util.ArrayList;
+
 public class oevelseActivity extends AppCompatActivity {
     WebView webView;
     ProgressBar progressBar;
     EditText editText;
     Button button;
+    private int position;
+    private ArrayList<String> oevelseList;
+    private String oevelseName;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_oevelse);
+        validateReceiveValues();
         editText = (EditText) findViewById(R.id.editText);
         button = (Button) findViewById(R.id.button);
         progressBar = (ProgressBar) findViewById(R.id.progressBar);
@@ -121,5 +128,13 @@ public class oevelseActivity extends AppCompatActivity {
             default:
                 return super.onOptionsItemSelected(item);
         }
+    }
+
+    private void validateReceiveValues() {
+        Intent intent = getIntent();
+        Bundle bundle = intent.getExtras();
+        oevelseList = (ArrayList) bundle.getParcelableArrayList("oevelse");
+        oevelseName = oevelseList.get(position);
+        webView.loadUrl(oevelseList.toString());
     }
 }
