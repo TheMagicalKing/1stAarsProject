@@ -53,7 +53,7 @@ public class klientChat extends AppCompatActivity {
         Firebase.setAndroidContext(this);
         reference1 = new Firebase("https://chat-test-6a7f9.firebaseio.com/Beskeder/YQ5S2VEusLhA2z61WLdT" +UserDetails.username
                 + "_" + UserDetails.chatWith);
-        reference2 = new Firebase("https://chat-test-6a7f9.firebaseio.com/Beskeder/YQ5S2VEusLhA2z61WLdT" +UserDetails.chatWith
+        reference2 = new Firebase("https://fysio-app.firebaseio.com/" +UserDetails.chatWith
                 + "_" + UserDetails.username);
 
         sendButton.setOnClickListener(new View.OnClickListener() {

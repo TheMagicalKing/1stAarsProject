@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -46,16 +47,19 @@ public class Users extends AppCompatActivity {
 
         StringRequest request = new StringRequest(Request.Method.GET, url, new Response.Listener<String>() {
             @Override
-            public void onResponse(String response) {
+            public void onResponse(String s) {
                 doOnSuccess(s);
-            },new Response.ErrorListener(){
-                @Override
-                        public void onErrorResponse(VolleyError volleyError){
-                    System.out.println("" + volleyError);
-                }
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                System.out.println("" + volleyError);
             }
         });
-        RequestQueue requestQueue = Volley.newRequestQueue(Users.this);
+    }
+
+
+    RequestQueue requestQueue = Volley.newRequestQueue(Users.this);
         requestQueue.add(request);
 
         userList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -86,6 +90,15 @@ public class Users extends AppCompatActivity {
             e.printStackTrace();
         }
 
+        if (totalUser <=1){
+            noUsersText.setVisibility(View.VISIBLE);
+            userList.setVisibility(View.GONE);
+        }else{
+            noUsersText.setVisibility(View.GONE);
+            userList.setVisibility(View.VISIBLE);
+            userList.setAdapter(new ArrayAdapter<String>(this, android.R.layout.simple_expandable_list_item_1));
+        }
 
+        pd.dismiss();
     }
 }
