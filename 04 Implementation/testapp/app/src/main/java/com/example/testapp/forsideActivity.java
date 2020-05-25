@@ -41,7 +41,7 @@ public class forsideActivity extends AppCompatActivity {
 
     private void openOevelse() {
 
-        Intent intent = new Intent(this, OevelseListActivity.class);
+        Intent intent = new Intent(this, oevelseActivity.class);
         startActivity(intent);
 
     }

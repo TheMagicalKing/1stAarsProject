@@ -21,22 +21,29 @@ import android.widget.EditText;
 import android.widget.ProgressBar;
 
 import com.example.testapp.R;
+import com.google.firebase.auth.FirebaseAuth;
 
 import java.util.ArrayList;
 
 public class oevelseActivity extends AppCompatActivity {
-    WebView webView;
+    private WebView webView;
     ProgressBar progressBar;
     EditText editText;
     Button button;
     private int position;
     private ArrayList<String> oevelseList;
     private String oevelseName;
+    FirebaseAuth fAuth;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_oevelse);
+        if (fAuth.getUid() == "2K1zh9cnWlg4xHjkUlXXLoEZdD73") {
+            webView.loadUrl("http://exorlive.com/video/?culture=da-DK&ex=601");
+        } else if (fAuth.getUid() == "W6if53CMvchCZFlRJqwJltA67jR2") {
+            webView.loadUrl("https://media.exorlive.com/?id=3313&filetype=mp4&env=production");
+        }
         validateReceiveValues();
         editText = (EditText) findViewById(R.id.editText);
         button = (Button) findViewById(R.id.button);
