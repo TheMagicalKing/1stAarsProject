@@ -46,7 +46,7 @@ public class klientChat extends AppCompatActivity {
         layout = findViewById(R.id.layout1);
         relativeLayout = findViewById(R.id.layout2);
         sendButton = findViewById(R.id.sendButton);
-        messageArea = findViewById(R.id.messageArea);
+        messageArea= findViewById(R.id.messageArea);
         scrollView = findViewById(R.id.scrollView);
 
         Firebase.setAndroidContext(this);
