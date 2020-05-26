@@ -44,8 +44,8 @@ public class klientChat extends AppCompatActivity {
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_klient_chat);
-        layout = findViewById(R.id.layout);
-        relativeLayout = findViewById(R.id.relativlayout);
+        layout = findViewById(R.id.layout1);
+        relativeLayout = findViewById(R.id.layout2);
         sendButton = findViewById(R.id.sendButton);
         messageArea = findViewById(R.id.messageArea);
         scrollView = findViewById(R.id.scrollView);
@@ -124,8 +124,8 @@ public class klientChat extends AppCompatActivity {
         TextView textView = new TextView(klientChat.this);
         textView.setText(message);
 
-        LinearLayout.layoutParams lp2 = new LinearLayout.layoutParams(ViewGroup.layoutParams.WRAP_CONTENT);
-        lp2.wieght = 7.0f;
+        LinearLayout.LayoutParams lp2 = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
+        lp2.weight = 7.0f;
 
         if (type == 1){
             lp2.gravity = Gravity.START;

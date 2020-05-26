@@ -24,7 +24,7 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 import java.util.Iterator;
 
-public class Users extends AppCompatActivity {
+public class Users<request> extends AppCompatActivity {
     ListView userList;
     TextView noUsersText;
     ArrayList<String> al = new ArrayList<>();
@@ -53,13 +53,10 @@ public class Users extends AppCompatActivity {
         }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
-                System.out.println("" + volleyError);
+                System.out.println("" + error);
             }
         });
-    }
-
-
-    RequestQueue requestQueue = Volley.newRequestQueue(Users.this);
+        RequestQueue requestQueue = Volley.newRequestQueue(Users.this);
         requestQueue.add(request);
 
         userList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -71,6 +68,12 @@ public class Users extends AppCompatActivity {
         });
     }
 
+
+
+
+
+
+
     public void  doOnSuccess(String s){
         try {
             JSONObject object = new JSONObject(s);
@@ -80,9 +83,7 @@ public class Users extends AppCompatActivity {
             while (i.hasNext()){
                 key = i.next().toString();
 
-                if (!key.equals(UserDetails.username)){
-                    al.add(key);
-                }
+                if (!key.equals(UserDetails.username)) al.add(key);
 
                 totalUser++;
             }
