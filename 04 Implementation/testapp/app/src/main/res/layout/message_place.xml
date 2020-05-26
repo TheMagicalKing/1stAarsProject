@@ -24,6 +24,6 @@
         android:layout_weight="4"
         android:padding="4dp"
         android:src="@android:drawable/btn_plus"
-        android:id="@+id/search_badge"
+        android:id="@+id/sendButton"
         />
 </LinearLayout>
