@@ -13,8 +13,9 @@ import java.net.URL;
 import java.util.ArrayList;
 
 public class OevelseListActivity extends AppCompatActivity {
-    private String[] items;
-    private ListView oevelseList;
+    ArrayList<String> arrayList;
+    ListView oevelseList;
+    ArrayAdapter<String> adapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,23 +26,18 @@ public class OevelseListActivity extends AppCompatActivity {
     }
 
     private void displayList() {
-        final ArrayList<String> oevelse = new ArrayList<>();
-        oevelse.add("http://exorlive.com/video/?culture=da-DK&ex=601");
-        items = new String[oevelse.size()];
-        for (int i = 0; i < oevelse.size(); i++) {
-            items[i] = oevelse.get(i);
-        }
-        ArrayAdapter<String> arrayAdapter = new ArrayAdapter<>(OevelseListActivity.this, android.R.layout.simple_list_item_1, items);
-        oevelseList.setAdapter(arrayAdapter);
+        arrayList = new ArrayList<String>();
+        adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, arrayList);
+        oevelseList.setAdapter(adapter);
+        arrayList.add("exorlive.com/video/?culture=da-DK&ex=601");
+        arrayList.add("media.exorlive.com/?id=3313&filetype=mp4&env=production");
         oevelseList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                String name = oevelseList.getItemAtPosition(position).toString();
-                Intent intent = new Intent(OevelseListActivity.this, oevelseActivity.class);
-                intent.putExtra("oevelse", oevelse);
-                intent.putExtra("name", name);
-                intent.putExtra("position", position);
-                startActivity(intent);
+            public void onItemClick(AdapterView<?> adapterView, View view, int position, long l) {
+                Intent i = new Intent(OevelseListActivity.this, oevelseActivity.class);
+                String s = arrayList.get(position);
+                i.putExtra("a", s);
+                startActivity(i);
             }
         });
     }

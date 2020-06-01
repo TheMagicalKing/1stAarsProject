@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -39,11 +40,11 @@ public class oevelseActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_oevelse);
-        if (fAuth.getUid() == "2K1zh9cnWlg4xHjkUlXXLoEZdD73") {
-            webView.loadUrl("http://exorlive.com/video/?culture=da-DK&ex=601");
-        } else if (fAuth.getUid() == "W6if53CMvchCZFlRJqwJltA67jR2") {
-            webView.loadUrl("https://media.exorlive.com/?id=3313&filetype=mp4&env=production");
-        }
+//        if (fAuth.getUid() == "2K1zh9cnWlg4xHjkUlXXLoEZdD73") {
+//            webView.loadUrl("http://exorlive.com/video/?culture=da-DK&ex=601");
+//        } else if (fAuth.getUid() == "W6if53CMvchCZFlRJqwJltA67jR2") {
+//            webView.loadUrl("https://media.exorlive.com/?id=3313&filetype=mp4&env=production");
+//        }
         validateReceiveValues();
         editText = (EditText) findViewById(R.id.editText);
         button = (Button) findViewById(R.id.button);
@@ -138,10 +139,10 @@ public class oevelseActivity extends AppCompatActivity {
     }
 
     private void validateReceiveValues() {
-        Intent intent = getIntent();
-        Bundle bundle = intent.getExtras();
-        oevelseList = (ArrayList) bundle.getParcelableArrayList("oevelse");
-        oevelseName = oevelseList.get(position);
-        webView.loadUrl(oevelseList.toString());
+        webView = (WebView) findViewById(R.id.webView);
+        Intent i = getIntent();
+        Bundle b = i.getExtras();
+        String data = b.getString("a");
+        webView.loadUrl("https://" + data);
     }
 }
