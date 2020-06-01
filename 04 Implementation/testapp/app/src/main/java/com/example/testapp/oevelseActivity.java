@@ -4,7 +4,9 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.Color;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -20,17 +22,30 @@ import android.widget.EditText;
 import android.widget.ProgressBar;
 
 import com.example.testapp.R;
+import com.google.firebase.auth.FirebaseAuth;
+
+import java.util.ArrayList;
 
 public class oevelseActivity extends AppCompatActivity {
-    WebView webView;
+    private WebView webView;
     ProgressBar progressBar;
     EditText editText;
     Button button;
+    private int position;
+    private ArrayList<String> oevelseList;
+    private String oevelseName;
+    FirebaseAuth fAuth;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_oevelse);
+//        if (fAuth.getUid() == "2K1zh9cnWlg4xHjkUlXXLoEZdD73") {
+//            webView.loadUrl("http://exorlive.com/video/?culture=da-DK&ex=601");
+//        } else if (fAuth.getUid() == "W6if53CMvchCZFlRJqwJltA67jR2") {
+//            webView.loadUrl("https://media.exorlive.com/?id=3313&filetype=mp4&env=production");
+//        }
+        validateReceiveValues();
         editText = (EditText) findViewById(R.id.editText);
         button = (Button) findViewById(R.id.button);
         progressBar = (ProgressBar) findViewById(R.id.progressBar);
@@ -121,5 +136,13 @@ public class oevelseActivity extends AppCompatActivity {
             default:
                 return super.onOptionsItemSelected(item);
         }
+    }
+
+    private void validateReceiveValues() {
+        webView = (WebView) findViewById(R.id.webView);
+        Intent i = getIntent();
+        Bundle b = i.getExtras();
+        String data = b.getString("a");
+        webView.loadUrl("https://" + data);
     }
 }
