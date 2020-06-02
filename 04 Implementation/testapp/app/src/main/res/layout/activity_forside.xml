@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#0B104A"
     tools:context=".forsideActivity">
 
     <ImageView
@@ -29,7 +30,7 @@
         android:layout_marginTop="120dp"
         android:layout_marginEnd="120dp"
         android:layout_marginRight="120dp"
-        android:background="#00ccff"
+        android:background="@drawable/bluerounded"
         android:text="Chat"
         android:textColor="#ffffff"
         app:layout_constraintEnd_toEndOf="parent"
@@ -47,13 +48,30 @@
         android:layout_marginEnd="120dp"
         android:layout_marginRight="120dp"
         android:layout_marginBottom="99dp"
-        android:background="#00ccff"
+        android:background="@drawable/bluerounded"
         android:text="Øvelser"
         android:textColor="#ffffff"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/chatButton" />
+
+    <Button
+        android:id="@+id/bookingButton"
+        android:layout_width="172dp"
+        android:layout_height="46dp"
+        android:layout_marginStart="119dp"
+        android:layout_marginTop="15dp"
+        android:layout_marginEnd="120dp"
+        android:layout_marginBottom="39dp"
+        android:background="@drawable/bluerounded"
+        android:text="Øvelser"
+        android:textColor="#ffffff"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/oevelserButton" />
 
     <TextView
         android:id="@+id/textView6"
@@ -62,9 +80,10 @@
         android:layout_marginStart="92dp"
         android:layout_marginLeft="92dp"
         android:layout_marginTop="40dp"
-        android:text="Velkommen til Frederiksberg Sportsklinik!"
+        android:text="Velkommen {Bruger}"
         android:textAlignment="center"
-        android:textSize="16sp"
+        android:textSize="24sp"
+        android:textColor="#fff"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView3" />
 
@@ -80,6 +99,7 @@
         android:text="For at komme i kontakt med din terapeut tryk på Chat!"
         android:textAlignment="center"
         android:textSize="16sp"
+        android:textColor="#fff"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView6" />
@@ -96,6 +116,7 @@
         android:text="For at tjekke dine øvelser tryk på Øvelser!"
         android:textAlignment="center"
         android:textSize="16sp"
+        android:textColor="#fff"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView7" />
