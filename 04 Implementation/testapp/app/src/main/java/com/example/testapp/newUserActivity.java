@@ -6,7 +6,6 @@ import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -34,7 +33,7 @@ public class newUserActivity extends AppCompatActivity {
         final EditText phoneNumber = findViewById(R.id.phoneNumber);
         final EditText forNavn = findViewById(R.id.forNavn);
         final EditText efterNavn = findViewById(R.id.efterNavn);
-        final TextView fejlBesked = findViewById(R.id.fejlBesked);
+
 
 
         fAuth = FirebaseAuth.getInstance();

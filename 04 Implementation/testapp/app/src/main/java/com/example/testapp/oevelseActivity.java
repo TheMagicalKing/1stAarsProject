@@ -1,12 +1,8 @@
 package com.example.testapp;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
-import android.net.Uri;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -21,7 +17,9 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ProgressBar;
 
-import com.example.testapp.R;
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+
 import com.google.firebase.auth.FirebaseAuth;
 
 import java.util.ArrayList;
@@ -46,8 +44,7 @@ public class oevelseActivity extends AppCompatActivity {
 //            webView.loadUrl("https://media.exorlive.com/?id=3313&filetype=mp4&env=production");
 //        }
         validateReceiveValues();
-        editText = (EditText) findViewById(R.id.editText);
-        button = (Button) findViewById(R.id.button);
+
         progressBar = (ProgressBar) findViewById(R.id.progressBar);
         progressBar.setMax(100);
         progressBar.setVisibility(View.GONE);
@@ -76,15 +73,7 @@ public class oevelseActivity extends AppCompatActivity {
                 }
             });
         }
-        button.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                InputMethodManager inputMethodManager = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
-                inputMethodManager.hideSoftInputFromWindow(getCurrentFocus().getWindowToken(), InputMethodManager.HIDE_NOT_ALWAYS);
-                webView.loadUrl("https://" + editText.getText().toString());
-                editText.setText("");
-            }
-        });
+
     }
 
     public class ourViewClient extends WebViewClient {
@@ -131,7 +120,7 @@ public class oevelseActivity extends AppCompatActivity {
                 InputMethodManager inputMethodManager = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
                 inputMethodManager.hideSoftInputFromWindow(getCurrentFocus().getWindowToken(), InputMethodManager.HIDE_NOT_ALWAYS);
                 webView.loadUrl("https://google.com");
-                editText.setText("");
+
                 return true;
             default:
                 return super.onOptionsItemSelected(item);
