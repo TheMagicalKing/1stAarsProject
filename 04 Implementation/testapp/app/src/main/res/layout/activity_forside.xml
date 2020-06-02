@@ -65,7 +65,7 @@
         android:layout_marginEnd="120dp"
         android:layout_marginBottom="39dp"
         android:background="@drawable/bluerounded"
-        android:text="Øvelser"
+        android:text="Booking"
         android:textColor="#ffffff"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
