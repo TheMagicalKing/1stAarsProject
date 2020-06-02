@@ -135,7 +135,7 @@ public class klientChat extends AppCompatActivity {
         }
         textView.setLayoutParams(lp2);
         layout.addView(textView);
-        scrollView.addView(textView);
+        scrollView.fullScroll(View.FOCUS_UP);
     }
     private void openForside(){
         Intent intent = new Intent(this, forsideActivity.class);

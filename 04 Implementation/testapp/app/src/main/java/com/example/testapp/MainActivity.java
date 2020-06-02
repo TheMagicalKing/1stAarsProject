@@ -34,7 +34,6 @@ public class  MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        Toolbar toolbar = findViewById(R.id.toolbar3);
 
         final EditText userEmail = findViewById(R.id.userEmail);
         final EditText userPass = findViewById(R.id.userPass);
