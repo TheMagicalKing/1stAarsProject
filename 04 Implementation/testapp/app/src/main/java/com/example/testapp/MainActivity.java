@@ -19,6 +19,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.testapp.persistens.FireBaseController;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
@@ -27,7 +28,8 @@ import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 
 public class  MainActivity extends AppCompatActivity {
-    FirebaseAuth fAuth;
+    //FirebaseAuth fAuth;
+    FireBaseController fireBaseController = new FireBaseController();
 
 
     @Override
@@ -39,7 +41,8 @@ public class  MainActivity extends AppCompatActivity {
         final EditText userEmail = findViewById(R.id.userEmail);
         final EditText userPass = findViewById(R.id.userPass);
         final Button LogInKnap = findViewById(R.id.logInKnap);
-        fAuth = FirebaseAuth.getInstance();
+        fireBaseController.MainFirebase();
+
 
 
 
@@ -96,17 +99,17 @@ public class  MainActivity extends AppCompatActivity {
                 }
                 //progressBar.setVisibility(View.VISIBLE);
                 // authenticating user
-                fAuth.signInWithEmailAndPassword(email, password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
-                    @Override
+                fireBaseController.MainFirebaseLogin(email, password); {
+
                     public void onComplete(@NonNull Task<AuthResult> task) {
-                        if (task.isSuccessful()) {
+                        if (fireBaseController.MainFirebaseLogin(email,password).isSuccessful()) {
                             Toast.makeText(MainActivity.this, "User logged in", Toast.LENGTH_SHORT).show();
                             startActivity(new Intent(getApplicationContext(), forsideActivity.class));
                         } else {
                             Toast.makeText(MainActivity.this, "Error !" + task.getException().getMessage(), Toast.LENGTH_SHORT).show();
                         }
                     }
-                });
+                }
             }
         });
 
