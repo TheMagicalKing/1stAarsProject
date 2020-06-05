@@ -7,10 +7,8 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
-
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-
 import com.example.testapp.logic.forsideActivity;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -38,10 +36,7 @@ public class newUserActivity extends AppCompatActivity {
 
 
         fAuth = FirebaseAuth.getInstance();
-        /*if (fAuth.getCurrentUser() != null) {
-            startActivity(new Intent(getApplicationContext(), forsideActivity.class));
-            finish();
-        } */
+
 
         signUpKnap.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -80,15 +75,6 @@ public class newUserActivity extends AppCompatActivity {
     }
 
 
-       /* signUpKnap.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (userEmail.getText().toString().trim().length() > 0 && userPass.getText().toString().trim().length() > 0 && phoneNumber.getText().toString().trim().length() > 0 && forNavn.getText().toString().trim().length() > 0 && efterNavn.getText().toString().trim().length() > 0){
-                forsideChange();}
-                fejlBesked.setVisibility(View.VISIBLE);
-
-            }
-        }); */
     private void forsideChange() {
         Intent intent = new Intent(this, forsideActivity.class);
         startActivity(intent);
