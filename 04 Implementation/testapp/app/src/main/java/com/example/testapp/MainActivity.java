@@ -1,9 +1,5 @@
 package com.example.testapp;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.Toolbar;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.SpannableString;
@@ -17,17 +13,20 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
-import android.widget.Toast;
 
-import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.Task;
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
+
+import com.example.testapp.persistens.FireBaseController;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
-import com.google.firebase.auth.AuthResult;
-import com.google.firebase.auth.FirebaseAuth;
+
 
 public class  MainActivity extends AppCompatActivity {
-    FirebaseAuth fAuth;
+
+    FireBaseController fireBaseController = new FireBaseController();
+
 
 
     @Override
@@ -39,7 +38,9 @@ public class  MainActivity extends AppCompatActivity {
         final EditText userEmail = findViewById(R.id.userEmail);
         final EditText userPass = findViewById(R.id.userPass);
         final Button LogInKnap = findViewById(R.id.logInKnap);
-        fAuth = FirebaseAuth.getInstance();
+        final Intent intentToChange = new Intent(this, forsideActivity.class);
+
+
 
 
 
@@ -96,17 +97,8 @@ public class  MainActivity extends AppCompatActivity {
                 }
                 //progressBar.setVisibility(View.VISIBLE);
                 // authenticating user
-                fAuth.signInWithEmailAndPassword(email, password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
-                    @Override
-                    public void onComplete(@NonNull Task<AuthResult> task) {
-                        if (task.isSuccessful()) {
-                            Toast.makeText(MainActivity.this, "User logged in", Toast.LENGTH_SHORT).show();
-                            startActivity(new Intent(getApplicationContext(), forsideActivity.class));
-                        } else {
-                            Toast.makeText(MainActivity.this, "Error !" + task.getException().getMessage(), Toast.LENGTH_SHORT).show();
-                        }
-                    }
-                });
+
+                fireBaseController.MainFirebaseLogin(email, password, MainActivity.this, intentToChange);
             }
         });
 
