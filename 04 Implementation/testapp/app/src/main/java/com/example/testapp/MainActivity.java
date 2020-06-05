@@ -99,17 +99,7 @@ public class  MainActivity extends AppCompatActivity {
                 }
                 //progressBar.setVisibility(View.VISIBLE);
                 // authenticating user
-                fireBaseController.MainFirebaseLogin(email, password); {
-
-                    public void onComplete(@NonNull Task<AuthResult> task) {
-                        if (fireBaseController.MainFirebaseLogin(email,password).isSuccessful()) {
-                            Toast.makeText(MainActivity.this, "User logged in", Toast.LENGTH_SHORT).show();
-                            startActivity(new Intent(getApplicationContext(), forsideActivity.class));
-                        } else {
-                            Toast.makeText(MainActivity.this, "Error !" + task.getException().getMessage(), Toast.LENGTH_SHORT).show();
-                        }
-                    }
-                }
+                fireBaseController.MainFirebaseLogin(email, password, MainActivity.this);
             }
         });
 

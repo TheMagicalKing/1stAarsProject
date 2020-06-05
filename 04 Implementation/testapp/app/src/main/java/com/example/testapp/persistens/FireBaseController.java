@@ -1,5 +1,6 @@
 package com.example.testapp.persistens;
 
+import android.content.Context;
 import android.content.Intent;
 import android.widget.Toast;
 
@@ -18,20 +19,22 @@ import static androidx.core.content.ContextCompat.startActivity;
 public class FireBaseController extends AppCompatActivity {
     FirebaseAuth firebaseAuth;
     private AuthResult Task;
+    MainActivity main = new MainActivity();
 
     public void MainFirebase(){
         FirebaseAuth.getInstance();
 
     }
-    public AuthResult MainFirebaseLogin(final String email, final String password, final Class activity){
+    public AuthResult MainFirebaseLogin(final String email, final String password, final Context activity){
         firebaseAuth.signInWithEmailAndPassword(email, password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
             @Override
             public void onComplete(@NonNull com.google.android.gms.tasks.Task<AuthResult> task) {
                 if (task.isSuccessful()) {
                     startActivity(new Intent(getApplicationContext(), forsideActivity.class));
                 } else {
-                    Toast.makeText(MainActivity.this, "Error !" + task.getException().getMessage(),
-                            Toast.LENGTH_SHORT).show;
+
+                    errorToast(activity,task);
+
                 }
             }
         });
@@ -39,6 +42,11 @@ public class FireBaseController extends AppCompatActivity {
             Task = (AuthResult) firebaseAuth.getPendingAuthResult();
 
         return Task;
+    }
+
+    public static void errorToast(Context activity, Task task){
+        Toast.makeText(activity, "Error !" + task.getException().getMessage(),
+                Toast.LENGTH_SHORT).show();
     }
 
 }
