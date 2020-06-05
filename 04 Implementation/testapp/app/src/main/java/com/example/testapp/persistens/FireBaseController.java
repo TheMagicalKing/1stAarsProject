@@ -19,7 +19,7 @@ public class FireBaseController extends AppCompatActivity {
 
 
     public void MainFirebase(){
-//        FirebaseAuth.getInstance();
+
     }
     public AuthResult MainFirebaseLogin(final String email, final String password, final Context activity, final Intent intent){
         firebaseAuth = FirebaseAuth.getInstance();

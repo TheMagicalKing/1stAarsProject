@@ -39,7 +39,7 @@ public class  MainActivity extends AppCompatActivity {
         final EditText userPass = findViewById(R.id.userPass);
         final Button LogInKnap = findViewById(R.id.logInKnap);
         final Intent intentToChange = new Intent(this, forsideActivity.class);
-        //fireBaseController.MainFirebase();
+
 
 
 
