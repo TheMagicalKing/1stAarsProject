@@ -1,4 +1,4 @@
-package com.example.testapp;
+package com.example.testapp.ui;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -8,6 +8,7 @@ import android.view.View;
 import android.widget.ImageView;
 
 import com.example.testapp.R;
+import com.example.testapp.logic.forsideActivity;
 
 public class klientChat extends AppCompatActivity {
 

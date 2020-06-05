@@ -18,7 +18,9 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
+import com.example.testapp.logic.forsideActivity;
 import com.example.testapp.persistens.FireBaseController;
+import com.example.testapp.ui.forgotsUserPass;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
 
