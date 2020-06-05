@@ -3,7 +3,6 @@ package com.example.testapp;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.SpannableString;
@@ -17,18 +16,13 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
-import android.widget.Toast;
-
 import com.example.testapp.persistens.FireBaseController;
-import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.Task;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
-import com.google.firebase.auth.AuthResult;
-import com.google.firebase.auth.FirebaseAuth;
+
 
 public class  MainActivity extends AppCompatActivity {
-    //FirebaseAuth fAuth;
+
     FireBaseController fireBaseController = new FireBaseController();
 
 
@@ -41,7 +35,7 @@ public class  MainActivity extends AppCompatActivity {
         final EditText userEmail = findViewById(R.id.userEmail);
         final EditText userPass = findViewById(R.id.userPass);
         final Button LogInKnap = findViewById(R.id.logInKnap);
-        fireBaseController.MainFirebase();
+        //fireBaseController.MainFirebase();
 
 
 
