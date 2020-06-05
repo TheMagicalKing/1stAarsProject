@@ -1,8 +1,5 @@
 package com.example.testapp;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.Toolbar;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.SpannableString;
@@ -16,6 +13,11 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
+
 import com.example.testapp.persistens.FireBaseController;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
@@ -24,6 +26,7 @@ import com.google.android.material.snackbar.Snackbar;
 public class  MainActivity extends AppCompatActivity {
 
     FireBaseController fireBaseController = new FireBaseController();
+
 
 
     @Override
@@ -35,6 +38,7 @@ public class  MainActivity extends AppCompatActivity {
         final EditText userEmail = findViewById(R.id.userEmail);
         final EditText userPass = findViewById(R.id.userPass);
         final Button LogInKnap = findViewById(R.id.logInKnap);
+        final Intent intentToChange = new Intent(this, forsideActivity.class);
         //fireBaseController.MainFirebase();
 
 
@@ -93,7 +97,8 @@ public class  MainActivity extends AppCompatActivity {
                 }
                 //progressBar.setVisibility(View.VISIBLE);
                 // authenticating user
-                fireBaseController.MainFirebaseLogin(email, password, MainActivity.this);
+
+                fireBaseController.MainFirebaseLogin(email, password, MainActivity.this, intentToChange);
             }
         });
 

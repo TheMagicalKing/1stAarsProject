@@ -21,17 +21,21 @@ public class FireBaseController extends AppCompatActivity {
     public void MainFirebase(){
 //        FirebaseAuth.getInstance();
     }
-    public AuthResult MainFirebaseLogin(final String email, final String password, final Context activity){
-        FirebaseAuth.getInstance();
+    public AuthResult MainFirebaseLogin(final String email, final String password, final Context activity, final Intent intent){
+        firebaseAuth = FirebaseAuth.getInstance();
         firebaseAuth.signInWithEmailAndPassword(email, password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
             @Override
             public void onComplete(@NonNull com.google.android.gms.tasks.Task<AuthResult> task) {
                 if (task.isSuccessful()) {
                     System.out.println("I'm in bitch");
-                    startActivity(new Intent(getApplicationContext(), forsideActivity.class));
+                    System.out.println(intent);
+                    Intent i1 = new Intent (activity, forsideActivity.class);
+
+                    activity.startActivity(i1);
+
                 } else {
                     System.out.println("It failed bitch");
-                    //errorToast(activity,task);
+                    errorToast(activity,task);
 
                 }
             }
