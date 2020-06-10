@@ -37,8 +37,8 @@ public class  MainActivity extends AppCompatActivity {
 
         final EditText userEmail = findViewById(R.id.userEmail);
         final EditText userPass = findViewById(R.id.userPass);
-        final Button LogInKnap = findViewById(R.id.logInKnap);
-        final Intent intentToChange = new Intent(this, forsideActivity.class);
+        final Button logInKnap = findViewById(R.id.logInKnap);
+        final Intent intentToChange = new Intent(this, ForsideActivity.class);
 
 
 
@@ -76,7 +76,7 @@ public class  MainActivity extends AppCompatActivity {
         newUserFront.setMovementMethod(LinkMovementMethod.getInstance());
 
 
-        LogInKnap.setOnClickListener(new View.OnClickListener() {
+        logInKnap.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 String email = userEmail.getText().toString().trim();
@@ -119,17 +119,17 @@ public class  MainActivity extends AppCompatActivity {
 
     }
     public void openForgot(){
-        Intent intent = new Intent(this, forgotsUserPass.class);
+        Intent intent = new Intent(this, ForgotsUserPass.class);
         startActivity(intent);
     }
 
     public void openNewUser(){
-        Intent intent = new Intent(this, newUserActivity.class);
+        Intent intent = new Intent(this, NewUserActivity.class);
         startActivity(intent);
     }
 
     public void openLogInd(){
-        Intent intent = new Intent(this, forsideActivity.class);
+        Intent intent = new Intent(this, ForsideActivity.class);
         startActivity(intent);
     }
 

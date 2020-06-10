@@ -1,15 +1,13 @@
 package com.example.testapp;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
-import com.example.testapp.R;
+import androidx.appcompat.app.AppCompatActivity;
 
-public class forsideActivity extends AppCompatActivity {
+public class ForsideActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,7 +32,7 @@ public class forsideActivity extends AppCompatActivity {
 
     private void openChat() {
 
-        Intent intent = new Intent(this, klientChat.class);
+        Intent intent = new Intent(this, KlientChat.class);
         startActivity(intent);
 
     }

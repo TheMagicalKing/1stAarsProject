@@ -7,7 +7,7 @@ import android.widget.EditText;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-public class forgotsUserPass extends AppCompatActivity {
+public class ForgotsUserPass extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

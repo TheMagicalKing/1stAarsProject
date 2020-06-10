@@ -7,7 +7,7 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.example.testapp.forsideActivity;
+import com.example.testapp.ForsideActivity;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
@@ -29,7 +29,7 @@ public class FireBaseController extends AppCompatActivity {
                 if (task.isSuccessful()) {
                     System.out.println("I'm in bitch");
                     System.out.println(intent);
-                    Intent i1 = new Intent (activity, forsideActivity.class);
+                    Intent i1 = new Intent (activity, ForsideActivity.class);
 
                     activity.startActivity(i1);
 
