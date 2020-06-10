@@ -16,7 +16,7 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 
-public class newUserActivity extends AppCompatActivity {
+public class NewUserActivity extends AppCompatActivity {
 
     FirebaseAuth fAuth;
 
@@ -66,10 +66,10 @@ public class newUserActivity extends AppCompatActivity {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if (task.isSuccessful()) {
-                            Toast.makeText(newUserActivity.this, "User Created", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(NewUserActivity.this, "User Created", Toast.LENGTH_SHORT).show();
                             forsideChange();
                         } else {
-                            Toast.makeText(newUserActivity.this, "Error !" + task.getException().getMessage(), Toast.LENGTH_SHORT).show();
+                            Toast.makeText(NewUserActivity.this, "Error !" + task.getException().getMessage(), Toast.LENGTH_SHORT).show();
 
                         }
                     }
@@ -89,7 +89,7 @@ public class newUserActivity extends AppCompatActivity {
             }
         }); */
     private void forsideChange() {
-        Intent intent = new Intent(this,forsideActivity.class);
+        Intent intent = new Intent(this, ForsideActivity.class);
         startActivity(intent);
         }
 

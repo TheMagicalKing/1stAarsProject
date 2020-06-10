@@ -24,7 +24,7 @@ import com.google.firebase.auth.FirebaseAuth;
 
 import java.util.ArrayList;
 
-public class oevelseActivity extends AppCompatActivity {
+public class OevelseActivity extends AppCompatActivity {
     private WebView webView;
     ProgressBar progressBar;
     EditText editText;

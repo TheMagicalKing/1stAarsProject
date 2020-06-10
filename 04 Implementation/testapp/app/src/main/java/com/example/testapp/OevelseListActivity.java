@@ -47,7 +47,7 @@ public class OevelseListActivity extends AppCompatActivity {
         oevelseList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int position, long l) {
-                Intent i = new Intent(OevelseListActivity.this, oevelseActivity.class);
+                Intent i = new Intent(OevelseListActivity.this, OevelseActivity.class);
                 String s = arrayList.get(position);
                 i.putExtra("a", s);
                 startActivity(i);
