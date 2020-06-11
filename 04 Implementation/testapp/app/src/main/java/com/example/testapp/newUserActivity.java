@@ -49,19 +49,23 @@ public class newUserActivity extends AppCompatActivity {
                     return;
                 }
                 if (TextUtils.isEmpty(password)) {
-                    userPass.setError("Indtast Password");
+                    userPass.setError("Indtast et Password");
                     return;
                 }
 
+                if (password.length() < 6) {
+                    userPass.setError("Password skal minimum være på 6 tegn");
+                    return;
+                }
                 // register the user in firebase
                 fAuth.createUserWithEmailAndPassword(email, password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if (task.isSuccessful()) {
-                            Toast.makeText(newUserActivity.this, "User Created", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(newUserActivity.this, "Bruger oprettet", Toast.LENGTH_SHORT).show();
                             forsideChange();
                         } else {
-                            Toast.makeText(newUserActivity.this, "Error !" + task.getException().getMessage(), Toast.LENGTH_SHORT).show();
+                            Toast.makeText(newUserActivity.this, "fejl !" + task.getException().getMessage(), Toast.LENGTH_SHORT).show();
 
                         }
                     }
