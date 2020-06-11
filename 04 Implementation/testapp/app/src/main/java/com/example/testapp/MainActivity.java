@@ -100,7 +100,7 @@ public class  MainActivity extends AppCompatActivity {
                 //progressBar.setVisibility(View.VISIBLE);
                 // authenticating user
 
-                fireBaseController.MainFirebaseLogin(email, password, MainActivity.this, intentToChange);
+                fireBaseController.MainFirebaseLogin(email, password, MainActivity.this);
             }
         });
 
