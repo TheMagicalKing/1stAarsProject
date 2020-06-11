@@ -45,18 +45,14 @@ public class newUserActivity extends AppCompatActivity {
                 String password = userPass.getText().toString().trim();
 
                 if (TextUtils.isEmpty(email)) {
-                    userEmail.setError("Email is Required");
+                    userEmail.setError("Indtast Email");
                     return;
                 }
                 if (TextUtils.isEmpty(password)) {
-                    userPass.setError("Password is Required");
+                    userPass.setError("Indtast Password");
                     return;
                 }
 
-                if (password.length() < 6) {
-                    userPass.setError("Password must be >= 6 characters");
-                    return;
-                }
                 // register the user in firebase
                 fAuth.createUserWithEmailAndPassword(email, password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                     @Override
