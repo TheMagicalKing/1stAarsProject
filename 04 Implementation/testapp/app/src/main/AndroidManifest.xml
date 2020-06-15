@@ -12,7 +12,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".OevelseListActivity"></activity>
+        <activity android:name=".UI.BookingActivity"></activity>
+        <activity android:name=".OevelseListActivity" />
         <activity android:name=".OevelseActivity" />
         <activity android:name=".KlientChat" />
         <activity android:name=".UI.ForsideActivity" />
