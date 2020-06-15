@@ -97,7 +97,7 @@ public class  MainActivity extends AppCompatActivity {
                     userPass.setError("Password must be >= 6 characters");
                     return;
                 }
-                //progressBar.setVisibility(View.VISIBLE);
+
                 // authenticating user
 
                 fireBaseController.MainFirebaseLogin(email, password, MainActivity.this, intentToChange);
