@@ -11,7 +11,7 @@ import android.webkit.WebView;
 import android.webkit.WebViewClient;
 import android.widget.ProgressBar;
 
-import com.example.testapp.OevelseActivity;
+import com.example.testapp.Logic.OevelseListActivity;
 import com.example.testapp.R;
 
 public class BookingActivity extends AppCompatActivity {
