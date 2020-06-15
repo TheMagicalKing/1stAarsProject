@@ -1,25 +1,19 @@
-package com.example.testapp;
-
+package com.example.testapp.UI;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.Toast;
-
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.example.testapp.UI.ForsideActivity;
-import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.Task;
-import com.google.firebase.auth.AuthResult;
-import com.google.firebase.auth.FirebaseAuth;
+import com.example.testapp.R;
+import com.example.testapp.persistens.NewUserDBController;
+
 
 public class NewUserActivity extends AppCompatActivity {
 
-    FirebaseAuth fAuth;
+   NewUserDBController newUserDBController = new NewUserDBController();
 
 
     @Override
@@ -34,14 +28,12 @@ public class NewUserActivity extends AppCompatActivity {
         final EditText phoneNumber = findViewById(R.id.phoneNumber);
         final EditText forNavn = findViewById(R.id.forNavn);
         final EditText efterNavn = findViewById(R.id.efterNavn);
+        final Intent intetToChange = new Intent(this, NewUserActivity.class);
 
 
 
-        fAuth = FirebaseAuth.getInstance();
-        /*if (fAuth.getCurrentUser() != null) {
-            startActivity(new Intent(getApplicationContext(), forsideActivity.class));
-            finish();
-        } */
+
+
 
         signUpKnap.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -63,32 +55,13 @@ public class NewUserActivity extends AppCompatActivity {
                     return;
                 }
                 // register the user in firebase
-                fAuth.createUserWithEmailAndPassword(email, password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
-                    @Override
-                    public void onComplete(@NonNull Task<AuthResult> task) {
-                        if (task.isSuccessful()) {
-                            Toast.makeText(NewUserActivity.this, "User Created", Toast.LENGTH_SHORT).show();
-                            forsideChange();
-                        } else {
-                            Toast.makeText(NewUserActivity.this, "Error !" + task.getException().getMessage(), Toast.LENGTH_SHORT).show();
-
-                        }
-                    }
-                });
+                newUserDBController.newUserFirebaseAdd(email, password, NewUserActivity.this,intetToChange);
             }
         });
     }
 
 
-       /* signUpKnap.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (userEmail.getText().toString().trim().length() > 0 && userPass.getText().toString().trim().length() > 0 && phoneNumber.getText().toString().trim().length() > 0 && forNavn.getText().toString().trim().length() > 0 && efterNavn.getText().toString().trim().length() > 0){
-                forsideChange();}
-                fejlBesked.setVisibility(View.VISIBLE);
 
-            }
-        }); */
     private void forsideChange() {
         Intent intent = new Intent(this, ForsideActivity.class);
         startActivity(intent);

@@ -1,4 +1,4 @@
-package com.example.testapp;
+package com.example.testapp.UI;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -19,7 +19,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
 import com.example.testapp.Logic.ForgotsUserPass;
-import com.example.testapp.UI.ForsideActivity;
+import com.example.testapp.R;
 import com.example.testapp.persistens.FireBaseController;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
@@ -97,7 +97,7 @@ public class  MainActivity extends AppCompatActivity {
                     userPass.setError("Password must be >= 6 characters");
                     return;
                 }
-                //progressBar.setVisibility(View.VISIBLE);
+
                 // authenticating user
 
                 fireBaseController.MainFirebaseLogin(email, password, MainActivity.this, intentToChange);

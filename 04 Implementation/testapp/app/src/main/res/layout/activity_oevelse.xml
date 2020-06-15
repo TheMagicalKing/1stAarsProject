@@ -9,7 +9,7 @@
     android:paddingLeft="0dp"
     android:paddingTop="0dp"
     android:paddingRight="0dp"
-    tools:context=".MainActivity">
+    tools:context=".UI.MainActivity">
 
     <ProgressBar
         android:id="@+id/progressBar"

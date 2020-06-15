@@ -1,4 +1,4 @@
-package com.example.testapp;
+package com.example.testapp.Logic;
 
 import android.content.Intent;
 import android.graphics.Color;
@@ -11,6 +11,9 @@ import android.widget.ListView;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
+
+import com.example.testapp.UI.OevelseActivity;
+import com.example.testapp.R;
 
 import java.util.ArrayList;
 
