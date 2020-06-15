@@ -1,4 +1,4 @@
-package com.example.testapp;
+package com.example.testapp.UI;
 
 import android.content.Context;
 import android.content.Intent;
@@ -20,6 +20,7 @@ import android.widget.ProgressBar;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.testapp.R;
 import com.google.firebase.auth.FirebaseAuth;
 
 import java.util.ArrayList;
@@ -38,11 +39,7 @@ public class OevelseActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_oevelse);
-//        if (fAuth.getUid() == "2K1zh9cnWlg4xHjkUlXXLoEZdD73") {
-//            webView.loadUrl("http://exorlive.com/video/?culture=da-DK&ex=601");
-//        } else if (fAuth.getUid() == "W6if53CMvchCZFlRJqwJltA67jR2") {
-//            webView.loadUrl("https://media.exorlive.com/?id=3313&filetype=mp4&env=production");
-//        }
+
         validateReceiveValues();
 
         progressBar = (ProgressBar) findViewById(R.id.progressBar);

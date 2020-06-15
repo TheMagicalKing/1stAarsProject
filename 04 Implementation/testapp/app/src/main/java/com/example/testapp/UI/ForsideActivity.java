@@ -7,8 +7,7 @@ import android.widget.Button;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.example.testapp.KlientChat;
-import com.example.testapp.OevelseListActivity;
+import com.example.testapp.Logic.OevelseListActivity;
 import com.example.testapp.R;
 
 public class ForsideActivity extends AppCompatActivity {
