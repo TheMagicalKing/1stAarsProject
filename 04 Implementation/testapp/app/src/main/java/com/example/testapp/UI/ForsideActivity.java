@@ -19,6 +19,7 @@ public class ForsideActivity extends AppCompatActivity {
 
         final Button chatButton = findViewById(R.id.chatButton);
         final Button oevelseButon = findViewById(R.id.oevelserButton);
+        final Button bookingButton = findViewById(R.id.bookingButton);
         chatButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -29,6 +30,12 @@ public class ForsideActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 openOevelse();
+            }
+        });
+        bookingButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                openBooking();
             }
         });
     }
@@ -45,5 +52,10 @@ public class ForsideActivity extends AppCompatActivity {
         Intent intent = new Intent(this, OevelseListActivity.class);
         startActivity(intent);
 
+    }
+
+    private void openBooking() {
+        Intent intent = new Intent(this, BookingActivity.class);
+        startActivity(intent);
     }
 }

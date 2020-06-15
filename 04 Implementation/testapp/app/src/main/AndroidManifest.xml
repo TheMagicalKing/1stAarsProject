@@ -12,9 +12,16 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+<<<<<<< GRASPING
         <activity android:name=".Logic.OevelseListActivity"></activity>
         <activity android:name=".UI.OevelseActivity" />
         <activity android:name=".UI.KlientChat" />
+=======
+        <activity android:name=".UI.BookingActivity"></activity>
+        <activity android:name=".OevelseListActivity" />
+        <activity android:name=".OevelseActivity" />
+        <activity android:name=".KlientChat" />
+>>>>>>> master
         <activity android:name=".UI.ForsideActivity" />
         <activity android:name=".UI.NewUserActivity" />
         <activity android:name=".Logic.ForgotsUserPass" />
