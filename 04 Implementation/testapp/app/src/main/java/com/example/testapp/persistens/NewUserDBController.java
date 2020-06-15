@@ -15,7 +15,6 @@ import com.google.firebase.auth.FirebaseAuth;
 
 public class NewUserDBController extends AppCompatActivity {
     FirebaseAuth firebaseAuth;
-    private AuthResult Task;
 
     public AuthResult newUserFirebaseAdd(final String email, final String password, final Context context, final Intent intent){
         firebaseAuth = FirebaseAuth.getInstance();
@@ -35,9 +34,9 @@ public class NewUserDBController extends AppCompatActivity {
             }
         });
 
-        Task = (AuthResult) firebaseAuth.getPendingAuthResult();
+        AuthResult task = (AuthResult) firebaseAuth.getPendingAuthResult();
 
-        return Task;
+        return task;
     }
 
     public static void errorToast (Context context, Task task){
