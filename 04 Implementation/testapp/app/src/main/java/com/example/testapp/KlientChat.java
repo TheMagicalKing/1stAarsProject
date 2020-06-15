@@ -7,6 +7,8 @@ import android.widget.ImageView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.testapp.UI.ForsideActivity;
+
 public class KlientChat extends AppCompatActivity {
 
     @Override
