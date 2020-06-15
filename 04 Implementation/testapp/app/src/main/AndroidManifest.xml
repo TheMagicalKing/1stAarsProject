@@ -15,9 +15,9 @@
         <activity android:name=".OevelseListActivity"></activity>
         <activity android:name=".OevelseActivity" />
         <activity android:name=".KlientChat" />
-        <activity android:name=".ForsideActivity" />
+        <activity android:name=".UI.ForsideActivity" />
         <activity android:name=".NewUserActivity" />
-        <activity android:name=".ForgotsUserPass" />
+        <activity android:name=".Logic.ForgotsUserPass" />
         <activity
             android:name=".MainActivity"
             android:label="@string/app_name"

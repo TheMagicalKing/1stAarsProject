@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#0B104A"
-    tools:context=".ForgotsUserPass">
+    tools:context=".Logic.ForgotsUserPass">
 
     <Button
         android:id="@+id/TestButton"
