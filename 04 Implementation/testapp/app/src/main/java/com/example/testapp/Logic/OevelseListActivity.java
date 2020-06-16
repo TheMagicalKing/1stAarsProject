@@ -9,13 +9,12 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
-
 import androidx.appcompat.app.AppCompatActivity;
-
 import com.example.testapp.UI.OevelseActivity;
 import com.example.testapp.R;
-
 import java.util.ArrayList;
+
+// Denne fil står for at vise en liste af øvelser til brugerne.
 
 public class OevelseListActivity extends AppCompatActivity {
     ArrayList<String> arrayList;
@@ -23,14 +22,15 @@ public class OevelseListActivity extends AppCompatActivity {
     ArrayAdapter<String> adapter;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState) { //laver viser øvelses activityen
+        // samt øvelses listen.
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_oevelse_list);
         oevelseList = findViewById(R.id.oevelseList);
         displayList();
     }
 
-    private void displayList() {
+    private void displayList() { /* denne funktion tilføjer øvelser til øvelseslisten og tilføjer det til UI'et.*/
         arrayList = new ArrayList<String>();
         adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, arrayList){
             @Override
