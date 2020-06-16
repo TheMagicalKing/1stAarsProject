@@ -35,8 +35,9 @@ public class OevelseListActivity extends AppCompatActivity {
         oevelseList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Intent intent = new Intent(getApplicationContext(), OevelseActivity.class);
+                Intent intent = new Intent(OevelseListActivity.this, OevelseActivity.class);
                 intent.putExtra("url", url[position]);
+                startActivity(intent);
             }
         });
     }

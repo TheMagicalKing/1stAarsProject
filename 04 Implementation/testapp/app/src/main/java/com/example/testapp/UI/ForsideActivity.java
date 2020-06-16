@@ -49,7 +49,7 @@ public class ForsideActivity extends AppCompatActivity {
 
     private void openOevelse() {
 
-        Intent intent = new Intent(this, OevelseActivity.class);
+        Intent intent = new Intent(this, OevelseListActivity.class);
         startActivity(intent);
 
     }

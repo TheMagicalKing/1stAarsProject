@@ -15,7 +15,7 @@
             android:layout_marginEnd="44dp"
             android:layout_toStartOf="@+id/images"
             android:text="Apple"
-            android:textColor="#000"
+            android:textColor="#fff"
             android:textSize="25dp"/>
         <ImageView
             android:id="@+id/images"
