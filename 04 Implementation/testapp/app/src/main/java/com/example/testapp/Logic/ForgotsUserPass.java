@@ -9,15 +9,23 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.testapp.R;
 
+/*Denne fil står for at give brugeren et nyt password hvis at brugeren
+har glemt deres nuværende password*/
+
 public class ForgotsUserPass extends AppCompatActivity {
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState) {              /*Nå der klikkes på
+                                                                        "glemt password"
+                                                                        Senders brugergen videre til
+                                                                         Forgot_user_pass activity.
+                                                                         */
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_forgots_user_pass);
 
         Button tester = findViewById(R.id.TestButton);
-        tester.setOnClickListener(new View.OnClickListener() {
+        tester.setOnClickListener(new View.OnClickListener() {      /* denne funktion ændre teksten.*/
             @Override
             public void onClick(View v) {
 
