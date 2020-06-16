@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">UItest</string>
+    <string name="app_name">Frederiksberg Sportsklinik</string>
     <string name="action_settings">Settings</string>
     <string name="title_activity_login">Sign in</string>
     <string name="prompt_email">Email</string>

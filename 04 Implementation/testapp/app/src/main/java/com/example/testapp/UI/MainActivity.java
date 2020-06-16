@@ -1,8 +1,4 @@
-package com.example.testapp;
-
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.Toolbar;
+package com.example.testapp.UI;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -17,17 +13,22 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
-import android.widget.Toast;
 
-import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.Task;
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
+
+import com.example.testapp.Logic.ForgotsUserPass;
+import com.example.testapp.R;
+import com.example.testapp.persistens.FireBaseController;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
-import com.google.firebase.auth.AuthResult;
-import com.google.firebase.auth.FirebaseAuth;
+
 
 public class  MainActivity extends AppCompatActivity {
-    FirebaseAuth fAuth;
+
+    FireBaseController fireBaseController = new FireBaseController();
+
 
 
     @Override
@@ -38,8 +39,10 @@ public class  MainActivity extends AppCompatActivity {
 
         final EditText userEmail = findViewById(R.id.userEmail);
         final EditText userPass = findViewById(R.id.userPass);
-        final Button LogInKnap = findViewById(R.id.logInKnap);
-        fAuth = FirebaseAuth.getInstance();
+        final Button logInKnap = findViewById(R.id.logInKnap);
+        final Intent intentToChange = new Intent(this, ForsideActivity.class);
+
+
 
 
 
@@ -75,7 +78,7 @@ public class  MainActivity extends AppCompatActivity {
         newUserFront.setMovementMethod(LinkMovementMethod.getInstance());
 
 
-        LogInKnap.setOnClickListener(new View.OnClickListener() {
+        logInKnap.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 String email = userEmail.getText().toString().trim();
@@ -94,19 +97,10 @@ public class  MainActivity extends AppCompatActivity {
                     userPass.setError("Password must be >= 6 characters");
                     return;
                 }
-                //progressBar.setVisibility(View.VISIBLE);
+
                 // authenticating user
-                fAuth.signInWithEmailAndPassword(email, password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
-                    @Override
-                    public void onComplete(@NonNull Task<AuthResult> task) {
-                        if (task.isSuccessful()) {
-                            Toast.makeText(MainActivity.this, "User logged in", Toast.LENGTH_SHORT).show();
-                            startActivity(new Intent(getApplicationContext(), forsideActivity.class));
-                        } else {
-                            Toast.makeText(MainActivity.this, "Error !" + task.getException().getMessage(), Toast.LENGTH_SHORT).show();
-                        }
-                    }
-                });
+
+                fireBaseController.MainFirebaseLogin(email, password, MainActivity.this, intentToChange);
             }
         });
 
@@ -127,17 +121,17 @@ public class  MainActivity extends AppCompatActivity {
 
     }
     public void openForgot(){
-        Intent intent = new Intent(this, forgotsUserPass.class);
+        Intent intent = new Intent(this, ForgotsUserPass.class);
         startActivity(intent);
     }
 
     public void openNewUser(){
-        Intent intent = new Intent(this, newUserActivity.class);
+        Intent intent = new Intent(this, NewUserActivity.class);
         startActivity(intent);
     }
 
     public void openLogInd(){
-        Intent intent = new Intent(this, forsideActivity.class);
+        Intent intent = new Intent(this, ForsideActivity.class);
         startActivity(intent);
     }
 
