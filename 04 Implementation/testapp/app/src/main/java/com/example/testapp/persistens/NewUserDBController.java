@@ -11,6 +11,7 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 
+// Denne fil og den fuktioner ud føre den samme opgave som den anden kontroller blot med user creation isten for
 public class NewUserDBController extends AppCompatActivity {
     FirebaseAuth firebaseAuth;
 
