@@ -21,9 +21,9 @@ import java.util.ArrayList;
 
 public class OevelseListActivity extends AppCompatActivity {
     ListView oevelseList;
-    String[] oevelseName = {"knæbøjninger"};
-    int[] oevelseImage = {R.drawable.leg};
-    String[] url = {"exorlive.com/video/?culture=da-DK&ex=601"};
+    String[] oevelseName = {"knæbøjninger", "placeholder"};
+    int[] oevelseImage = {R.drawable.leg, R.drawable.leg};
+    String[] url = {"exorlive.com/video/?culture=da-DK&ex=601", "media.exorlive.com/?id=3313&filetype=mp4&env=production\n"};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
