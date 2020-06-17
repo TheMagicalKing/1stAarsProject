@@ -4,7 +4,6 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.text.SpannableString;
 import android.text.Spanned;
-import android.text.TextUtils;
 import android.text.method.LinkMovementMethod;
 import android.text.style.ClickableSpan;
 import android.view.Menu;
@@ -19,15 +18,13 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
 import com.example.testapp.Logic.ForgotsUserPass;
+import com.example.testapp.Logic.LogInSystem;
 import com.example.testapp.R;
-import com.example.testapp.persistens.FireBaseController;
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
-import com.google.android.material.snackbar.Snackbar;
 
 
 public class  MainActivity extends AppCompatActivity {
 
-    FireBaseController fireBaseController = new FireBaseController();
+    LogInSystem logInSystem = new LogInSystem();
 
 
 
@@ -84,36 +81,8 @@ public class  MainActivity extends AppCompatActivity {
                 String email = userEmail.getText().toString().trim();
                 String password = userPass.getText().toString().trim();
 
-                if (TextUtils.isEmpty(email)) {
-                    userEmail.setError("Email is Required");
-                    return;
-                }
-                if (TextUtils.isEmpty(password)) {
-                    userPass.setError("Password is Required");
-                    return;
-                }
+                logInSystem.logIn(email, password,MainActivity.this, userEmail, userPass);
 
-                if (password.length() < 6) {
-                    userPass.setError("Password must be >= 6 characters");
-                    return;
-                }
-
-                // authenticating user
-
-                fireBaseController.MainFirebaseLogin(email, password, MainActivity.this, intentToChange);
-            }
-        });
-
-
-
-
-
-        FloatingActionButton fab = findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
             }
         });
 
