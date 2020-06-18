@@ -128,7 +128,6 @@ public class OevelseActivity extends AppCompatActivity {
         webView = (WebView) findViewById(R.id.webView);
         Intent i = getIntent();
         Bundle b = i.getExtras();
-        String data = b.getString("a");
-        webView.loadUrl("https://" + data);
+        webView.loadUrl("https://" + i.getStringExtra("url"));
     }
 }
