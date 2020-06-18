@@ -6,12 +6,11 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import androidx.appcompat.app.AppCompatActivity;
-
 import com.example.testapp.R;
 import com.example.testapp.persistens.NewUserDBController;
 
 
-public class NewUserActivity extends AppCompatActivity {
+public class NewUserActivity extends AppCompatActivity { // denne fil står for at oprette nye brugere.
 
    NewUserDBController newUserDBController = new NewUserDBController();
 
@@ -33,11 +32,9 @@ public class NewUserActivity extends AppCompatActivity {
 
 
 
-
-
         signUpKnap.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {
+            public void onClick(View v) { // den funktion setter de forskellige indput felter og tager imod bruger indput.
                 String email = userEmail.getText().toString().trim();
                 String password = userPass.getText().toString().trim();
 
@@ -62,7 +59,7 @@ public class NewUserActivity extends AppCompatActivity {
 
 
 
-    private void forsideChange() {
+    private void forsideChange() { // går tilbage til forsiden.
         Intent intent = new Intent(this, ForsideActivity.class);
         startActivity(intent);
         }

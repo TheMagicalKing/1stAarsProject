@@ -15,11 +15,7 @@
         <activity android:name=".Logic.OevelseListActivity" />
         <activity android:name=".UI.OevelseActivity" />
         <activity android:name=".UI.KlientChat" />
-
         <activity android:name=".UI.BookingActivity" />
-
-
-
         <activity android:name=".UI.ForsideActivity" />
         <activity android:name=".UI.NewUserActivity" />
         <activity android:name=".Logic.ForgotsUserPass" />

@@ -16,14 +16,13 @@ import android.webkit.WebViewClient;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ProgressBar;
-
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-
 import com.example.testapp.R;
 import com.google.firebase.auth.FirebaseAuth;
-
 import java.util.ArrayList;
+
+// Denne fil viser brugerenes øvelser.
 
 public class OevelseActivity extends AppCompatActivity {
     private WebView webView;
@@ -36,7 +35,7 @@ public class OevelseActivity extends AppCompatActivity {
     FirebaseAuth fAuth;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState) { // denn metode hender og viser brugeren øvelser.
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_oevelse);
 
@@ -73,6 +72,7 @@ public class OevelseActivity extends AppCompatActivity {
 
     }
 
+    // de følgende metoder styre cookis, og skaber sætter ting ind i list viewet.
     public class ourViewClient extends WebViewClient {
         @Override
         public boolean shouldOverrideUrlLoading(WebView view, String url) {
@@ -101,7 +101,7 @@ public class OevelseActivity extends AppCompatActivity {
     }
 
     @Override
-    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) { // Denne funktion indeholder en kontrole statement der sstyre hvad der sker når at brugeren ville ha vist en video.
         switch (item.getItemId()) {
             case R.id.item_back:
                 if (webView.canGoBack()) {

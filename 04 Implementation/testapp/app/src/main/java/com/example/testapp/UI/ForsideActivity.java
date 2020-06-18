@@ -4,16 +4,17 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
-
 import androidx.appcompat.app.AppCompatActivity;
-
 import com.example.testapp.Logic.OevelseListActivity;
 import com.example.testapp.R;
+
+// Denne fil styre vores forsideACtivity.
 
 public class ForsideActivity extends AppCompatActivity {
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState) { // Denne metode opretter nogle buttons som brugeren kan klikke på.
+        //for at komme til de forskellige app funktioner.
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_forside);
 
@@ -40,6 +41,7 @@ public class ForsideActivity extends AppCompatActivity {
         });
     }
 
+    // de følgende funktioner sender brugeren vidre til forskellige app funktioner.
     private void openChat() {
 
         Intent intent = new Intent(this, KlientChat.class);
