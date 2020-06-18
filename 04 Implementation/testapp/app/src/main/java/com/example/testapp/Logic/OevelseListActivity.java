@@ -1,5 +1,6 @@
 package com.example.testapp.Logic;
 
+import android.content.ClipData;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
@@ -38,6 +39,14 @@ public class OevelseListActivity extends AppCompatActivity {
 
         CustomAdapter customAdapter = new CustomAdapter();
         oevelseList.setAdapter(customAdapter);
+        oevelseList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Intent intent = new Intent(OevelseListActivity.this,OevelseActivity.class);
+                intent.putExtra("url",url[position]);
+                startActivity(intent);
+            }
+        });
 
 
     }
