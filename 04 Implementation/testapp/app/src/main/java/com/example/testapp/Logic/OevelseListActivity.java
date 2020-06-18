@@ -30,39 +30,16 @@ public class OevelseListActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_oevelse_list);
         oevelseList = findViewById(R.id.oevelseList);
-<<<<<<< Lav-Dokumentation
-        displayList();
-    }
 
-    private void displayList() { /* denne funktion tilføjer øvelser til øvelseslisten og tilføjer det til UI'et.*/
-        arrayList = new ArrayList<String>();
-        adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, arrayList){
-            @Override
-            public View getView(int position, View convertView, ViewGroup parent){
-                View view = super.getView(position, convertView,parent);
 
-                TextView textView = (TextView) view.findViewById(android.R.id.text1);
-                textView.setTextColor(Color.WHITE);
-                textView.setBackground(getResources().getDrawable(R.drawable.bluerounded));
 
-                return view;
-            }
-        };
-        oevelseList.setAdapter(adapter);
-        arrayList.add("exorlive.com/video/?culture=da-DK&ex=601");
-        arrayList.add("media.exorlive.com/?id=3313&filetype=mp4&env=production");
-=======
+
+
+
         CustomAdapter customAdapter = new CustomAdapter();
         oevelseList.setAdapter(customAdapter);
->>>>>>> master
-        oevelseList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Intent intent = new Intent(OevelseListActivity.this, OevelseActivity.class);
-                intent.putExtra("url", url[position]);
-                startActivity(intent);
-            }
-        });
+
+
     }
 
     private class CustomAdapter extends BaseAdapter {
